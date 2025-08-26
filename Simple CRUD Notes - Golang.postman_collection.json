@@ -1,0 +1,1628 @@
+{
+	"info": {
+		"_postman_id": "a5c3be30-f1f4-4539-b127-e5b262ec0b81",
+		"name": "Simple CRUD Notes - Golang",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11229455",
+		"_collection_link": "https://interstellar-sunset-453937.postman.co/workspace/My-Workspace~ccede66d-04e4-45c3-885f-ee0395cf2a52/collection/11229455-a5c3be30-f1f4-4539-b127-e5b262ec0b81?action=share&source=collection_link&creator=11229455"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Registration",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Hardita Kurniawan",
+									"description": "required | string | min: 1 | max: 50",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "hardita.kurniawan@gmail.com",
+									"description": "required | string | email | unique",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "@Didit123",
+									"description": "required | string | min: 8 | include special character",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}:3001/{{prefix}}/v1/registrations",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "3001",
+							"path": [
+								"{{prefix}}",
+								"v1",
+								"registrations"
+							]
+						},
+						"description": "Generated from cURL: curl --location 'http://localhost:3001/api/v1/registrations' \\\n--header 'Content-Type: application/json' \\\n--data-raw '{\n    \"name\": \"Hardita Kurniawan\",\n    \"email\": \"hardita.kurniawan@gmail.com\",\n    \"password\": \"@Didit123\"\n}'"
+					},
+					"response": [
+						{
+							"name": "Registration",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Hardita Kurniawan\",\n    \"email\": \"hardita.kurniawan@gmail.com\",\n    \"password\": \"@Didit123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:3001/{{prefix}}/v1/registrations",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "3001",
+									"path": [
+										"{{prefix}}",
+										"v1",
+										"registrations"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "HK Smart Home - AUTH SERVICE API"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 10:53:00 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "316"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"data\": {\n        \"created_at\": \"2025-08-24T17:53:00.888012+07:00\",\n        \"email\": \"hardita.kurniawan@gmail.com\",\n        \"id\": 27,\n        \"name\": \"Hardita Kurniawan\",\n        \"updated_at\": \"2025-08-24T17:53:00.888012+07:00\"\n    },\n    \"meta\": {\n        \"last_page\": 0,\n        \"message\": null,\n        \"page\": 0,\n        \"per_page\": 0,\n        \"status\": \"Created\",\n        \"status_code\": 201,\n        \"total\": 0,\n        \"url\": \"/api/v1/registrations\"\n    }\n}"
+						},
+						{
+							"name": "Validation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Hardita Kurniawan\",\n    \"email\": \"hardita.kurniawan@gmail.com\",\n    \"password\": \"@Didit123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:3001/{{prefix}}/v1/registrations",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "3001",
+									"path": [
+										"{{prefix}}",
+										"v1",
+										"registrations"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "HK Smart Home - AUTH SERVICE API"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 11:13:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "202"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"data\": null,\n    \"meta\": {\n        \"last_page\": 0,\n        \"message\": [\n            {\n                \"error\": \"Email already exists\",\n                \"field\": \"general\"\n            }\n        ],\n        \"page\": 0,\n        \"per_page\": 0,\n        \"status\": \"Bad Request\",\n        \"status_code\": 400,\n        \"total\": 0,\n        \"url\": \"/api/v1/registrations\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Sign In",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = pm.response.json();",
+									"var token = response.data.access_token;",
+									"",
+									"pm.environment.set('bearer_token', token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "hardita.kurniawan@gmail.com",
+									"description": "required | string | email",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "@Didit123",
+									"description": "required | string | min: 8 | include special character",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}:3001/{{prefix}}/v1/sign-in",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "3001",
+							"path": [
+								"{{prefix}}",
+								"v1",
+								"sign-in"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sign In",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"hardita.kurniawan@gmail.com\",\n    \"password\": \"@Didit123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:3001/{{prefix}}/v1/sign-in",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "3001",
+									"path": [
+										"{{prefix}}",
+										"v1",
+										"sign-in"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "HK Smart Home - AUTH SERVICE API"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 13:11:50 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "601"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTYxMjc1MTEsImlhdCI6MTc1NjA0MTExMSwidXNlcl9pZCI6IjI3In0.gfUlY4G7Y63gbNoigQQrQREejsIozvlurr1zqJQbMc7eYUliMhIZx2o9w_qIoUhSF3UsBTEIIzz5O5_kXCZ6R3jqpI8Att46rMMFO16iBOvGFRrcCqxeyDBbJ264Ye3oaOeODFpAXAEd5yxKHc_EhG5nO5Qrgzgm1xZIPBMIym5c_R8Nlo8sf8JJcod9yFFto-g_r0ff35EpVot4f6W7DedOJtdEdkBt4ma1m6U90qMpofeRtK6TFhizA3-qGTgjevpAzcI4UnZqhiPznsAt7tNSwWLo-tR-j7rcmNYIxHvKqH3vk2r_4lALSy67Klxnyn-yIhgasIgWxKl4UE7dEQ\"\n    },\n    \"meta\": {\n        \"last_page\": 0,\n        \"message\": null,\n        \"page\": 0,\n        \"per_page\": 0,\n        \"status\": \"OK\",\n        \"status_code\": 200,\n        \"total\": 0,\n        \"url\": \"/api/v1/sign-in\"\n    }\n}"
+						},
+						{
+							"name": "Validation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "hardita.kurniawangmail.com",
+											"description": "required | string | email",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "@Didit123",
+											"description": "required | string | min: 8 | include special character",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}:3001/{{prefix}}/v1/sign-in",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "3001",
+									"path": [
+										"{{prefix}}",
+										"v1",
+										"sign-in"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Simple CRUD Notes"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Aug 2025 06:06:07 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "234"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"data\": null,\n    \"meta\": {\n        \"status_code\": 400,\n        \"status\": \"Bad Request\",\n        \"message\": [\n            {\n                \"error\": \"field Email: wanted email , got `hardita.kurniawangmail.com`\",\n                \"field\": \"Email\"\n            }\n        ],\n        \"url\": \"/api/v1/sign-in\",\n        \"last_page\": 0,\n        \"per_page\": 0,\n        \"page\": 0,\n        \"total\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Sign Out",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearer_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}:3001/{{prefix}}/v1/sign-out",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "3001",
+							"path": [
+								"{{prefix}}",
+								"v1",
+								"sign-out"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sign Out",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:3001/{{prefix}}/v1/sign-out",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "3001",
+									"path": [
+										"{{prefix}}",
+										"v1",
+										"sign-out"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Server",
+									"value": "Simple CRUD Notes"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Aug 2025 05:41:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "166"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"message\": \"sign out success\"\n    },\n    \"meta\": {\n        \"last_page\": 0,\n        \"message\": null,\n        \"page\": 0,\n        \"per_page\": 0,\n        \"status\": \"OK\",\n        \"status_code\": 200,\n        \"total\": 0,\n        \"url\": \"/api/v1/sign-out\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Get Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearer_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}:3001/{{prefix}}/v1/profiles",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "3001",
+							"path": [
+								"{{prefix}}",
+								"v1",
+								"profiles"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Profile",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}:3001/{{prefix}}/v1/profiles",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "3001",
+									"path": [
+										"{{prefix}}",
+										"v1",
+										"profiles"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Simple CRUD Notes"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Aug 2025 06:16:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "258"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"data\": {\n        \"created_at\": \"2025-08-24T17:53:00.888012+07:00\",\n        \"email\": \"hardita.kurniawan@gmail.com\",\n        \"id\": 27,\n        \"name\": \"Hardita Kurniawan\"\n    },\n    \"meta\": {\n        \"last_page\": 0,\n        \"message\": null,\n        \"page\": 0,\n        \"per_page\": 0,\n        \"status\": \"OK\",\n        \"status_code\": 200,\n        \"total\": 0,\n        \"url\": \"/api/v1/profiles\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Notes",
+			"item": [
+				{
+					"name": "Create Note",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearer_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Hardita Note 3",
+									"description": "required | min:1 | max:100",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Welcome to my note",
+									"description": "optional | text",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}:3001/{{prefix}}/v1/notes",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "3001",
+							"path": [
+								"{{prefix}}",
+								"v1",
+								"notes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Note",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "Test My Note",
+											"description": "required | min:1 | max:100",
+											"type": "text"
+										},
+										{
+											"key": "content",
+											"value": "Welcome to my note",
+											"description": "optional",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:3001/{{prefix}}/v1/notes",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "3001",
+									"path": [
+										"{{prefix}}",
+										"v1",
+										"notes"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Simple CRUD Notes"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Aug 2025 15:56:09 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "309"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"content\": \"Welcome to my note\",\n        \"created_at\": \"2025-08-25T22:56:09.145819+07:00\",\n        \"id\": 1,\n        \"title\": \"Test My Note\",\n        \"updated_at\": \"2025-08-25T22:56:09.145819+07:00\"\n    },\n    \"meta\": {\n        \"last_page\": 0,\n        \"message\": null,\n        \"page\": 0,\n        \"per_page\": 0,\n        \"status\": \"Created\",\n        \"status_code\": 201,\n        \"total\": 0,\n        \"url\": \"/api/v1/notes\"\n    }\n}"
+						},
+						{
+							"name": "Validation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "Test My Note 3",
+											"description": "required | min:1 | max:100",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "content",
+											"value": "Welcome to my note",
+											"description": "optional",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:3001/{{prefix}}/v1/notes",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "3001",
+									"path": [
+										"{{prefix}}",
+										"v1",
+										"notes"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Simple CRUD Notes"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Aug 2025 17:51:29 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "209"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"data\": null,\n    \"meta\": {\n        \"last_page\": 0,\n        \"message\": [\n            {\n                \"error\": \"field Title: wanted required , got ``\",\n                \"field\": \"Title\"\n            }\n        ],\n        \"page\": 0,\n        \"per_page\": 0,\n        \"status\": \"Bad Request\",\n        \"status_code\": 400,\n        \"total\": 0,\n        \"url\": \"/api/v1/notes\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Notes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearer_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}:3001/{{prefix}}/v1/notes",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "3001",
+							"path": [
+								"{{prefix}}",
+								"v1",
+								"notes"
+							],
+							"query": [
+								{
+									"key": "page_number",
+									"value": "2",
+									"description": "optional | default : 1 | number",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "2",
+									"description": "optional | default : 10 | number",
+									"disabled": true
+								},
+								{
+									"key": "order_by",
+									"value": "created_at",
+									"description": "optional | default : id",
+									"disabled": true
+								},
+								{
+									"key": "sort_type",
+									"value": "ASC",
+									"description": "optional | default : DESC | enum: [ASC, DESC]",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "2",
+									"description": "optional | max : 100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Notes",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}:3001/{{prefix}}/v1/notes?page_size=2",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "3001",
+									"path": [
+										"{{prefix}}",
+										"v1",
+										"notes"
+									],
+									"query": [
+										{
+											"key": "page_number",
+											"value": "2",
+											"description": "optional | default : 1",
+											"disabled": true
+										},
+										{
+											"key": "page_size",
+											"value": "2",
+											"description": "optional | default : 10"
+										},
+										{
+											"key": "order_by",
+											"value": "created_at",
+											"description": "optional | default : id",
+											"disabled": true
+										},
+										{
+											"key": "sort_type",
+											"value": "ASC",
+											"description": "optional | default : DESC | enum: [ASC, DESC]",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "2",
+											"description": "optional | max : 100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Simple CRUD Notes"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Aug 2025 05:41:54 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "454"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"Content\": \"Welcome to my note\",\n            \"CreatedAt\": \"2025-08-26T12:38:54.804895+07:00\",\n            \"ID\": 3,\n            \"Title\": \"HK Note 3\",\n            \"UpdatedAt\": \"2025-08-26T12:38:54.804895+07:00\"\n        },\n        {\n            \"Content\": \"Welcome to my note\",\n            \"CreatedAt\": \"2025-08-26T12:38:51.930832+07:00\",\n            \"ID\": 2,\n            \"Title\": \"HK Note 2\",\n            \"UpdatedAt\": \"2025-08-26T12:38:51.930832+07:00\"\n        }\n    ],\n    \"meta\": {\n        \"last_page\": 2,\n        \"message\": null,\n        \"page\": 1,\n        \"per_page\": 2,\n        \"status\": \"OK\",\n        \"status_code\": 200,\n        \"total\": 3,\n        \"url\": \"/api/v1/notes?page_size=2\"\n    }\n}"
+						},
+						{
+							"name": "Get All Note - search",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}:3001/{{prefix}}/v1/notes?search=2",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "3001",
+									"path": [
+										"{{prefix}}",
+										"v1",
+										"notes"
+									],
+									"query": [
+										{
+											"key": "page_number",
+											"value": "2",
+											"description": "optional | default : 1",
+											"disabled": true
+										},
+										{
+											"key": "page_size",
+											"value": "2",
+											"description": "optional | default : 10",
+											"disabled": true
+										},
+										{
+											"key": "order_by",
+											"value": "created_at",
+											"description": "optional | default : id",
+											"disabled": true
+										},
+										{
+											"key": "sort_type",
+											"value": "ASC",
+											"description": "optional | default : DESC | enum: [ASC, DESC]",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "2",
+											"description": "optional | max : 100"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Server",
+									"value": "Simple CRUD Notes"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Aug 2025 05:42:41 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "298"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"Content\": \"Welcome to my note\",\n            \"CreatedAt\": \"2025-08-26T12:38:51.930832+07:00\",\n            \"ID\": 2,\n            \"Title\": \"HK Note 2\",\n            \"UpdatedAt\": \"2025-08-26T12:38:51.930832+07:00\"\n        }\n    ],\n    \"meta\": {\n        \"last_page\": 1,\n        \"message\": null,\n        \"page\": 1,\n        \"per_page\": 10,\n        \"status\": \"OK\",\n        \"status_code\": 200,\n        \"total\": 1,\n        \"url\": \"/api/v1/notes?search=2\"\n    }\n}"
+						},
+						{
+							"name": "Get All Note - validation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}:3001/{{prefix}}/v1/notes?page_size=asd",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "3001",
+									"path": [
+										"{{prefix}}",
+										"v1",
+										"notes"
+									],
+									"query": [
+										{
+											"key": "page_number",
+											"value": "2",
+											"description": "optional | default : 1 | number",
+											"disabled": true
+										},
+										{
+											"key": "page_size",
+											"value": "asd",
+											"description": "optional | default : 10 | number"
+										},
+										{
+											"key": "order_by",
+											"value": "created_at",
+											"description": "optional | default : id",
+											"disabled": true
+										},
+										{
+											"key": "sort_type",
+											"value": "ASC",
+											"description": "optional | default : DESC | enum: [ASC, DESC]",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "2",
+											"description": "optional | max : 100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Server",
+									"value": "Simple CRUD Notes"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Aug 2025 05:43:32 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "205"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"meta\": {\n        \"last_page\": 0,\n        \"message\": [\n            {\n                \"error\": \"Invalid page_size\",\n                \"field\": \"general\"\n            }\n        ],\n        \"page\": 0,\n        \"per_page\": 0,\n        \"status\": \"Bad Request\",\n        \"status_code\": 400,\n        \"total\": 0,\n        \"url\": \"/api/v1/notes?page_size=asd\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Detail Note",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearer_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}:3001/{{prefix}}/v1/notes/:note_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "3001",
+							"path": [
+								"{{prefix}}",
+								"v1",
+								"notes",
+								":note_id"
+							],
+							"variable": [
+								{
+									"key": "note_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Detail Note",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}:3001/{{prefix}}/v1/notes/:note_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "3001",
+									"path": [
+										"{{prefix}}",
+										"v1",
+										"notes",
+										":note_id"
+									],
+									"variable": [
+										{
+											"key": "note_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Simple CRUD Notes"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Aug 2025 16:21:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "293"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"content\": \"Welcome to my note\",\n        \"created_at\": \"2025-08-25T23:14:07.908169+07:00\",\n        \"id\": 2,\n        \"title\": \"Hardita Note\",\n        \"updated_at\": \"2025-08-25T23:14:07.908169+07:00\"\n    },\n    \"meta\": {\n        \"last_page\": 0,\n        \"message\": null,\n        \"page\": 0,\n        \"per_page\": 0,\n        \"status\": \"OK\",\n        \"status_code\": 200,\n        \"total\": 0,\n        \"url\": \"/api/v1/notes/2\"\n    }\n}"
+						},
+						{
+							"name": "Detail Note - validasi jika id bukan milik orang yg login",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}:3001/{{prefix}}/v1/notes/:note_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "3001",
+									"path": [
+										"{{prefix}}",
+										"v1",
+										"notes",
+										":note_id"
+									],
+									"variable": [
+										{
+											"key": "note_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Simple CRUD Notes"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Aug 2025 17:50:53 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "188"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"meta\": {\n        \"last_page\": 0,\n        \"message\": [\n            {\n                \"error\": \"Note not found\",\n                \"field\": \"general\"\n            }\n        ],\n        \"page\": 0,\n        \"per_page\": 0,\n        \"status\": \"Not Found\",\n        \"status_code\": 404,\n        \"total\": 0,\n        \"url\": \"/api/v1/notes/2\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Note",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearer_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "HK Note 3 - EDITED",
+									"description": "optional | min:1 | max:100",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Welcome to my note",
+									"description": "optional | text",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}:3001/{{prefix}}/v1/notes/:note_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "3001",
+							"path": [
+								"{{prefix}}",
+								"v1",
+								"notes",
+								":note_id"
+							],
+							"variable": [
+								{
+									"key": "note_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Note",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "Hardita Note 3 - EDITED",
+											"description": "optional | min:1 | max:100",
+											"type": "text"
+										},
+										{
+											"key": "content",
+											"value": "Welcome to my note",
+											"description": "optional | text",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}:3001/{{prefix}}/v1/notes/:note_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "3001",
+									"path": [
+										"{{prefix}}",
+										"v1",
+										"notes",
+										":note_id"
+									],
+									"variable": [
+										{
+											"key": "note_id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Simple CRUD Notes"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Aug 2025 06:07:23 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "304"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 3,\n        \"title\": \"Hardita Note 3 - EDITED\",\n        \"content\": \"Welcome to my note\",\n        \"created_at\": \"2025-08-26T12:38:54.804895+07:00\",\n        \"updated_at\": \"2025-08-26T13:07:23.821343+07:00\"\n    },\n    \"meta\": {\n        \"status_code\": 200,\n        \"status\": \"OK\",\n        \"message\": null,\n        \"url\": \"/api/v1/notes/3\",\n        \"last_page\": 0,\n        \"per_page\": 0,\n        \"page\": 0,\n        \"total\": 0\n    }\n}"
+						},
+						{
+							"name": "Validation",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "Hardita Note 3 - EDITED",
+											"description": "optional | min:1 | max:100",
+											"type": "text"
+										},
+										{
+											"key": "content",
+											"value": "Welcome to my note",
+											"description": "optional | text",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}:3001/{{prefix}}/v1/notes/:note_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "3001",
+									"path": [
+										"{{prefix}}",
+										"v1",
+										"notes",
+										":note_id"
+									],
+									"variable": [
+										{
+											"key": "note_id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Simple CRUD Notes"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 26 Aug 2025 06:05:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "215"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"meta\": {\n        \"status_code\": 404,\n        \"status\": \"Not Found\",\n        \"message\": [\n            {\n                \"error\": \"Note not found or does not belong to user\",\n                \"field\": \"general\"\n            }\n        ],\n        \"url\": \"/api/v1/notes/4\",\n        \"last_page\": 0,\n        \"per_page\": 0,\n        \"page\": 0,\n        \"total\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Note",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bearer_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}:3001/{{prefix}}/v1/notes/:note_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "3001",
+							"path": [
+								"{{prefix}}",
+								"v1",
+								"notes",
+								":note_id"
+							],
+							"variable": [
+								{
+									"key": "note_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Note",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}:3001/{{prefix}}/v1/notes/:note_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "3001",
+									"path": [
+										"{{prefix}}",
+										"v1",
+										"notes",
+										":note_id"
+									],
+									"variable": [
+										{
+											"key": "note_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Simple CRUD Notes"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Aug 2025 16:59:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "174"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"message\": \"Note deleted successfully\"\n    },\n    \"meta\": {\n        \"last_page\": 0,\n        \"message\": null,\n        \"page\": 0,\n        \"per_page\": 0,\n        \"status\": \"OK\",\n        \"status_code\": 200,\n        \"total\": 0,\n        \"url\": \"/api/v1/notes/2\"\n    }\n}"
+						},
+						{
+							"name": "Delete Note - validasi jika id bukan milik orang yg login",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}:3001/{{prefix}}/v1/notes/:note_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "3001",
+									"path": [
+										"{{prefix}}",
+										"v1",
+										"notes",
+										":note_id"
+									],
+									"variable": [
+										{
+											"key": "note_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Simple CRUD Notes"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Aug 2025 17:00:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "238"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"data\": null,\n    \"meta\": {\n        \"last_page\": 0,\n        \"message\": [\n            {\n                \"error\": \"Note not found or you do not have permission to delete this note\",\n                \"field\": \"general\"\n            }\n        ],\n        \"page\": 0,\n        \"per_page\": 0,\n        \"status\": \"Not Found\",\n        \"status_code\": 404,\n        \"total\": 0,\n        \"url\": \"/api/v1/notes/2\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}:3001/{{prefix}}/health-checks",
+					"host": [
+						"{{base_url}}"
+					],
+					"port": "3001",
+					"path": [
+						"{{prefix}}",
+						"health-checks"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Health Check",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}:3001/{{prefix}}/health-checks",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "3001",
+							"path": [
+								"{{prefix}}",
+								"health-checks"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "HK Smart Home - AUTH SERVICE API"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Aug 2025 08:58:10 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "16"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"OK\"\n}"
+				}
+			]
+		}
+	]
+}
