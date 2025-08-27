@@ -5,6 +5,7 @@ import (
 	databases "simple-crud-notes/databases/pgsql"
 	"simple-crud-notes/databases/pgsql/entities"
 	"simple-crud-notes/utils"
+	"simple-crud-notes/utils/enum"
 
 	"github.com/gofiber/fiber/v2"
 	"gorm.io/gorm"
@@ -17,7 +18,7 @@ func Profile(c *fiber.Ctx) error {
 			utils.ErrorResponse(
 				fiber.StatusInternalServerError,
 				c.OriginalURL(),
-				"User info not found in context",
+				enum.USER_NOT_FOUND_IN_CONTEXT,
 			),
 		)
 	}

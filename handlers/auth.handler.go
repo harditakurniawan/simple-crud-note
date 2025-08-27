@@ -174,7 +174,7 @@ func SignOut(c *fiber.Ctx) error {
 			utils.ErrorResponse(
 				fiber.StatusInternalServerError,
 				c.OriginalURL(),
-				"User info not found in context",
+				enum.USER_NOT_FOUND_IN_CONTEXT,
 			),
 		)
 	}

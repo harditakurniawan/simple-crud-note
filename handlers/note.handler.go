@@ -7,6 +7,7 @@ import (
 	databases "simple-crud-notes/databases/pgsql"
 	"simple-crud-notes/databases/pgsql/entities"
 	"simple-crud-notes/utils"
+	"simple-crud-notes/utils/enum"
 	"time"
 
 	"github.com/gofiber/fiber/v2"
@@ -37,7 +38,7 @@ func CreateNote(c *fiber.Ctx) error {
 			utils.ErrorResponse(
 				fiber.StatusInternalServerError,
 				c.OriginalURL(),
-				"User info not found in context",
+				enum.USER_NOT_FOUND_IN_CONTEXT,
 			),
 		)
 	}
@@ -151,7 +152,7 @@ func GetNotes(c *fiber.Ctx) error {
 			utils.ErrorResponse(
 				fiber.StatusInternalServerError,
 				c.OriginalURL(),
-				"User info not found in context",
+				enum.USER_NOT_FOUND_IN_CONTEXT,
 			),
 		)
 	}
@@ -225,7 +226,7 @@ func DetailNote(c *fiber.Ctx) error {
 			utils.ErrorResponse(
 				fiber.StatusInternalServerError,
 				c.OriginalURL(),
-				"User info not found in context",
+				enum.USER_NOT_FOUND_IN_CONTEXT,
 			),
 		)
 	}
@@ -285,7 +286,7 @@ func UpdateNote(c *fiber.Ctx) error {
 			utils.ErrorResponse(
 				fiber.StatusInternalServerError,
 				c.OriginalURL(),
-				"User info not found in context",
+				enum.USER_NOT_FOUND_IN_CONTEXT,
 			),
 		)
 	}
@@ -364,7 +365,7 @@ func DeleteNote(c *fiber.Ctx) error {
 			utils.ErrorResponse(
 				fiber.StatusInternalServerError,
 				c.OriginalURL(),
-				"User info not found in context",
+				enum.USER_NOT_FOUND_IN_CONTEXT,
 			),
 		)
 	}

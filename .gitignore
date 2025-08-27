@@ -3,3 +3,5 @@ build/
 temp/
 *.log
 *.key
+.scannerwork
+tmp
