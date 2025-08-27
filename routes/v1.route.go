@@ -9,6 +9,11 @@ import (
 )
 
 func InitRoutesV1(router fiber.Router, jwtService utils.JWTService) {
+	const (
+		NotesBasePath = "/notes"
+		NotesByIDPath = "/notes/:id"
+	)
+
 	v1 := router.Group("/v1")
 
 	v1.Use(middleware.Logging())
@@ -30,22 +35,22 @@ func InitRoutesV1(router fiber.Router, jwtService utils.JWTService) {
 	protectedRoute.Get("/profiles", handlers.Profile)
 
 	// NOTES
-	protectedRoute.Post("/notes",
+	protectedRoute.Post(NotesBasePath,
 		middleware.ValidateRequest((*utils.CreateNoteDto)(nil)),
 		handlers.CreateNote,
 	)
-	protectedRoute.Get("/notes",
+	protectedRoute.Get(NotesBasePath,
 		middleware.WithPagination(),
 		handlers.GetNotes,
 	)
-	protectedRoute.Get("/notes/:id",
+	protectedRoute.Get(NotesByIDPath,
 		handlers.DetailNote,
 	)
-	protectedRoute.Patch("/notes/:id",
+	protectedRoute.Patch(NotesByIDPath,
 		middleware.ValidateRequest((*utils.UpdateNoteDto)(nil)),
 		handlers.UpdateNote,
 	)
-	protectedRoute.Delete("/notes/:id",
+	protectedRoute.Delete(NotesByIDPath,
 		handlers.DeleteNote,
 	)
 }
