@@ -22,6 +22,8 @@ type NoteResponse struct {
 	UpdatedAt time.Time `json:"updated_at"`
 }
 
+const noteCondition = "id = ? AND user_id = ?"
+
 func CreateNote(c *fiber.Ctx) error {
 	validRequest, ok := c.Locals("validatedDTO").(*utils.CreateNoteDto)
 	if !ok {
@@ -232,7 +234,7 @@ func DetailNote(c *fiber.Ctx) error {
 	}
 
 	var detailNote entities.Note
-	result := databases.DB.First(&detailNote, "id = ? AND user_id = ?", noteId, userInfo.UserID)
+	result := databases.DB.First(&detailNote, noteCondition, noteId, userInfo.UserID)
 	if result.Error != nil {
 		if errors.Is(result.Error, gorm.ErrRecordNotFound) {
 			return c.Status(fiber.StatusNotFound).JSON(
@@ -303,7 +305,7 @@ func UpdateNote(c *fiber.Ctx) error {
 	}
 
 	var note entities.Note
-	result := databases.DB.Where("id = ? AND user_id = ?", noteId, userInfo.UserID).First(&note)
+	result := databases.DB.Where(noteCondition, noteId, userInfo.UserID).First(&note)
 	if result.Error != nil {
 		if errors.Is(result.Error, gorm.ErrRecordNotFound) {
 			return c.Status(fiber.StatusNotFound).JSON(
@@ -370,7 +372,7 @@ func DeleteNote(c *fiber.Ctx) error {
 		)
 	}
 
-	result := databases.DB.Delete(&entities.Note{}, "id = ? AND user_id = ?", noteId, userInfo.UserID)
+	result := databases.DB.Delete(&entities.Note{}, noteCondition, noteId, userInfo.UserID)
 	if result.Error != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(
 			utils.ErrorResponse(
